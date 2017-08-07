@@ -1,26 +1,64 @@
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>App</title>
-    <meta name="viewport" content="maximum-scale=1, width=device-width" />
-    <link rel="stylesheet" href="styles/reset.css" type="text/css" />
-    <link rel="stylesheet" href="styles/app.css" type="text/css" />
-    <script data-main="js/main" src="bundle.js" ></script>
-    <!-- <script data-main="js/main" src="js/require.js" ></script> -->
-  </head>
-  <body>
-    <div class='main'>
-      <div class="line-list" ng-app="app" ng-controller="ctrl">
-        <div>
-           <!-- {{log}} -->
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>App</title>
+  <meta name="viewport" content="maximum-scale=1, width=device-width" />
+  <link rel="stylesheet" href="styles/reset.css" type="text/css" />
+  <link rel="stylesheet" href="styles/app.css" type="text/css" />
+  <link rel="stylesheet" href="styles/angular-material.min.css" type="text/css" />
+  <script data-main="js/main" src="bundle.js"></script>
+  <!-- <script data-main="js/main" src="js/require.js" ></script> -->
+</head>
+
+<body>
+    <div class="line-list" ng-app="app" ng-controller="ctrl">
+      <md-toolbar class="md-hue-2">
+        <div class="md-toolbar-tools">
+          <!-- <md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">
+             <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>  
+          </md-button>
+ -->
+          <h2 flex md-truncate>Tube Status</h2>
+
+          <md-button class="md-icon-button" aria-label="Favorite" ng-click="load()">
+            <md-icon md-svg-icon="img/ic_refresh_white_24px.svg" style="color: greenyellow;"></md-icon>
+          </md-button>
+
         </div>
-        <div class='line' ng-repeat="line in lines">
-          {{line.id}} - {{line.status}}
-<!--            <div ng-if="line.statusSeverity < 10">
-            {{line.reason}}
+      </md-toolbar>
+    <md-content>
+      <div class='main'>
+        <div class='tube-list' ng-if="listLoaded===true">
+           <!-- <md-card>
+            <md-card-header>
+            <md-card-header-text>
+            <span class="md-title">Tube lines</span>
+             <span class="md-subhead">subhead</span> 
+          </md-card-header-text>
+            </md-card-header>  -->
+          <md-list class='md-dense' flex>
+            <md-list-item class="md-3-line" ng-repeat="line in lines" >
+              <!-- <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" /> -->
+              <div class="md-list-item-text" layout="column">
+                <h3>{{ line.id }}</h3>
+                <h4>{{ line.status }}</h4>
+                <!-- <p>{{ item.notes }}</p> -->
+              </div>
+            </md-list-item>
+            <!-- <md-divider></md-divider> -->
+          </md-list>
+          <!-- </md-card> -->
+        </div>
+        <div class-'loader-container' ng-if="listLoaded===false">
+          <div class='loader' layout="row" layout-sm="column" layout-align="space-around">
+            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
           </div>
- -->        </div>
+        </div>
       </div>
-    </div>
-  </body>
+
+  </md-content>
+  </div>
+</body>
+
 </html>

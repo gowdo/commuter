@@ -9,9 +9,25 @@ body {
   background-color:#EEEEEE;
   overflow: hidden;
 }
+.toolbardemoBasicUsage md-toolbar md-icon.md-default-theme {
+  color: white; 
+}
+md-list {
+  /* overflow-y: auto; */
+  /* flex:1; */
+  /* position:relative; */
+}
 .main {
+   /* display: flex;  */
+   /* height: 100%;  */
+}
+.loader-container {
   display: flex;
-  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.loader {
+  max-width: 50%;
 }
 .line-list {
   overflow-y: auto;
