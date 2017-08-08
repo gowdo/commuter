@@ -74563,17 +74563,19 @@ app.controller('ctrl', ($scope, $element, $http) => {
     $http.get('https://api.tfl.gov.uk/Line/Mode/tube/Status')
     .then((resp) => {
       const { data } = resp;
-      console.log(data);
       data.forEach((line) => {
         line.lineStatuses.forEach(s => {
-          $scope.lines.push({
-            id: line.id,
-            status: s.statusSeverityDescription,
-            statusSeverity: s.statusSeverity,
-            reason: s.reason
-          });
+          if (s.statusSeverity < 10) {
+            $scope.lines.push({
+              id: line.id,
+              status: s.statusSeverityDescription,
+              statusSeverity: s.statusSeverity,
+              reason: s.reason
+            });
+          }
         });
       });
+      console.log($scope.lines);
       $scope.listLoaded = true;
     });
   }

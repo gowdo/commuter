@@ -37,17 +37,20 @@
              <span class="md-subhead">subhead</span> 
           </md-card-header-text>
             </md-card-header>  -->
-          <md-list class='md-dense' flex>
+          <md-list ng-if='lines.length' class='md-dense1' flex>
             <md-list-item class="md-3-line" ng-repeat="line in lines" >
               <!-- <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" /> -->
               <div class="md-list-item-text" layout="column">
                 <h3>{{ line.id }}</h3>
                 <h4>{{ line.status }}</h4>
-                <!-- <p>{{ item.notes }}</p> -->
+                 <p>{{ line.reason }}</p> 
               </div>
             </md-list-item>
             <!-- <md-divider></md-divider> -->
           </md-list>
+          <md-content ng-if="lines.length===0" layout-padding>
+            All lines are running a good service
+          </md-content>
           <!-- </md-card> -->
         </div>
         <div class-'loader-container' ng-if="listLoaded===false">

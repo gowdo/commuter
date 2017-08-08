@@ -19,17 +19,19 @@ app.controller('ctrl', function ($scope, $element, $http) {
     $http.get('https://api.tfl.gov.uk/Line/Mode/tube/Status').then(function (resp) {
       var data = resp.data;
 
-      console.log(data);
       data.forEach(function (line) {
         line.lineStatuses.forEach(function (s) {
-          $scope.lines.push({
-            id: line.id,
-            status: s.statusSeverityDescription,
-            statusSeverity: s.statusSeverity,
-            reason: s.reason
-          });
+          if (s.statusSeverity < 10) {
+            $scope.lines.push({
+              id: line.id,
+              status: s.statusSeverityDescription,
+              statusSeverity: s.statusSeverity,
+              reason: s.reason
+            });
+          }
         });
       });
+      console.log($scope.lines);
       $scope.listLoaded = true;
     });
   };

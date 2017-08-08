@@ -14,14 +14,17 @@ app.controller('ctrl', ($scope, $element, $http) => {
       const { data } = resp;
       data.forEach((line) => {
         line.lineStatuses.forEach(s => {
-          $scope.lines.push({
-            id: line.id,
-            status: s.statusSeverityDescription,
-            statusSeverity: s.statusSeverity,
-            reason: s.reason
-          });
+          if (s.statusSeverity < 10) {
+            $scope.lines.push({
+              id: line.id,
+              status: s.statusSeverityDescription,
+              statusSeverity: s.statusSeverity,
+              reason: s.reason
+            });
+          }
         });
       });
+      console.log($scope.lines);
       $scope.listLoaded = true;
     });
   }

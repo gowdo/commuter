@@ -2,11 +2,11 @@
 body {
 	font-family: Arial, Helvetica, sans-serif;
 	/*font-family: "Lucida Grande", Tahoma, Helvetica, Arial, sans-serif;*/
-	font-size: 20px;
+	/* font-size: 20px; */
 	color: #555555;
 	text-transform: none;
 	/* line-height:13px; */
-  background-color:#EEEEEE;
+  /* background-color:#EEEEEE; */
   overflow: hidden;
 }
 .toolbardemoBasicUsage md-toolbar md-icon.md-default-theme {
