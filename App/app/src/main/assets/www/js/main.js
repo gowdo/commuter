@@ -3,11 +3,10 @@ import $ from 'jquery';
 
 var app = angular.module('app', ['ngMaterial']);
 app.controller('ctrl', ($scope, $element, $http) => {
-  $('.main').height($(window).height() - 56);
   $scope.listLoaded = false;
 
   $scope.load = function() {
-    $scope.listLoaded = false;
+    showLoader(true);
     $scope.lines = [];
     $http.get('https://api.tfl.gov.uk/Line/Mode/tube/Status')
     .then((resp) => {
@@ -25,8 +24,17 @@ app.controller('ctrl', ($scope, $element, $http) => {
         });
       });
       console.log($scope.lines);
-      $scope.listLoaded = true;
+      showLoader(false);
     });
+  }
+
+  function showLoader(show) {
+    $scope.listLoaded = !show;
+    if (show) {
+      $('.main').height($(window).height() - 56);
+    } else {
+      $('.main').height('auto');
+    }
   }
 
   $scope.load();

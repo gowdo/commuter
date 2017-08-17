@@ -10,11 +10,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var app = angular.module('app', ['ngMaterial']);
 app.controller('ctrl', function ($scope, $element, $http) {
-  (0, _jquery2.default)('.main').height((0, _jquery2.default)(window).height() - 56);
   $scope.listLoaded = false;
 
   $scope.load = function () {
-    $scope.listLoaded = false;
+    showLoader(true);
     $scope.lines = [];
     $http.get('https://api.tfl.gov.uk/Line/Mode/tube/Status').then(function (resp) {
       var data = resp.data;
@@ -32,9 +31,18 @@ app.controller('ctrl', function ($scope, $element, $http) {
         });
       });
       console.log($scope.lines);
-      $scope.listLoaded = true;
+      showLoader(false);
     });
   };
+
+  function showLoader(show) {
+    $scope.listLoaded = !show;
+    if (show) {
+      (0, _jquery2.default)('.main').height((0, _jquery2.default)(window).height() - 56);
+    } else {
+      (0, _jquery2.default)('.main').height('auto');
+    }
+  }
 
   $scope.load();
 });
