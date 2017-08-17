@@ -89,24 +89,20 @@ module.exports = 'ngAnimate';
 
 /***/ }),
 /* 3 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular_aria__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular_aria___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_angular_aria__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular_animate__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular_animate___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_angular_animate__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular_material__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular_material___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular_material__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__main_js__ = __webpack_require__(9);
 
 
+__webpack_require__(0);
 
+__webpack_require__(1);
 
+__webpack_require__(2);
 
+__webpack_require__(7);
+
+__webpack_require__(9);
 
 /***/ }),
 /* 4 */
@@ -74543,28 +74539,32 @@ angular.module("material.core").constant("$MD_THEME_CSS", "md-autocomplete.md-TH
 
 /***/ }),
 /* 9 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__test_js__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_jquery__);
 
 
+var _test = __webpack_require__(10);
+
+var _jquery = __webpack_require__(11);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var app = angular.module('app', ['ngMaterial']);
-app.controller('ctrl', ($scope, $element, $http) => {
-  __WEBPACK_IMPORTED_MODULE_1_jquery___default()('.main').height(__WEBPACK_IMPORTED_MODULE_1_jquery___default()(window).height() - 56);
+app.controller('ctrl', function ($scope, $element, $http) {
+  (0, _jquery2.default)('.main').height((0, _jquery2.default)(window).height() - 56);
   $scope.listLoaded = false;
 
-  $scope.load = function() {
+  $scope.load = function () {
     $scope.listLoaded = false;
     $scope.lines = [];
-    $http.get('https://api.tfl.gov.uk/Line/Mode/tube/Status')
-    .then((resp) => {
-      const { data } = resp;
-      data.forEach((line) => {
-        line.lineStatuses.forEach(s => {
+    $http.get('https://api.tfl.gov.uk/Line/Mode/tube/Status').then(function (resp) {
+      var data = resp.data;
+
+      data.forEach(function (line) {
+        line.lineStatuses.forEach(function (s) {
           if (s.statusSeverity < 10) {
             $scope.lines.push({
               id: line.id,
@@ -74578,7 +74578,7 @@ app.controller('ctrl', ($scope, $element, $http) => {
       console.log($scope.lines);
       $scope.listLoaded = true;
     });
-  }
+  };
 
   $scope.load();
 });
@@ -74586,18 +74586,21 @@ app.controller('ctrl', ($scope, $element, $http) => {
 // console.log(qq());
 
 
-
 function test() {
-  const gg = [];
-
+  var gg = [];
 }
 
 /***/ }),
 /* 10 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* unused harmony export qq */
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.qq = qq;
 function qq() {
   return 'ffffff';
 }

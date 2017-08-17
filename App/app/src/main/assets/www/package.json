@@ -2,7 +2,7 @@
   "name": "app",
   "version": "1.0.0",
   "scripts": {
-    "build": "babel js -d lib; webpack js/app.js bundle.js"
+    "build": "babel js -d lib; webpack lib/app.js bundle.js"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
