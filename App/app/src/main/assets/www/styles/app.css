@@ -10,7 +10,7 @@ body {
   overflow: hidden;
 }
 .toolbardemoBasicUsage md-toolbar md-icon.md-default-theme {
-  color: white; 
+  color: white;
 }
 md-list {
   /* overflow-y: auto; */
@@ -20,6 +20,8 @@ md-list {
 .main {
    /* display: flex;  */
    /* height: 100%;  */
+   height: calc(100% - 64px);
+   /* height: 100%; */
 }
 .loader-container {
   display: flex;
@@ -28,6 +30,7 @@ md-list {
 }
 .loader {
   max-width: 50%;
+  margin: 10px auto;
 }
 .line-list {
   overflow-y: auto;
@@ -61,10 +64,10 @@ md-list {
 }
 
 .loader {
-  width:32px;
-  height:32px;
-  margin: 200px auto;
-  background-image: url("../img/ajax-loader.gif");
+  /* width:32px; */
+  /* height:32px; */
+  /* margin: 20px auto; */
+  /* background-image: url("../img/ajax-loader.gif"); */
 }
 
 #notification-count {

@@ -7,33 +7,32 @@
   <link rel="stylesheet" href="styles/reset.css" type="text/css" />
   <link rel="stylesheet" href="styles/app.css" type="text/css" />
   <link rel="stylesheet" href="styles/angular-material.min.css" type="text/css" />
-  <script data-main="js/main" src="lib/bundle.js"></script>
+  <script data-main="js/main" src="bundle.js"></script>
   <!-- <script data-main="js/main" src="js/require.js" ></script> -->
 </head>
 
 <body>
-    <div class="line-list" ng-app="app" ng-controller="ctrl">
+  <div class="line-list" ng-app="app" ng-controller="ctrl">
     <!-- <div class="line-list" ng-app="app"> -->
-      <md-toolbar class="md-hue-2">
-        <div class="md-toolbar-tools">
-          <!-- <md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">
-             <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
-          </md-button>
- -->
-          <h2 flex md-truncate>Tube Status</h2>
+    <md-toolbar class="md-hue-2">
+      <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Settings">
+          <md-icon md-svg-icon="img/ic_menu_48px.svg"></md-icon>
+        </md-button>
 
-          <md-button class="md-icon-button" aria-label="Favorite" ng-click="load()">
-            <md-icon md-svg-icon="img/ic_refresh_white_24px.svg" style="color: greenyellow;"></md-icon>
-          </md-button>
+        <h2 flex md-truncate>Commuter</h2>
 
-        </div>
-      </md-toolbar>
+        <md-button class="md-icon-button" aria-label="Favorite" ng-click="load()">
+          <md-icon md-svg-icon="img/ic_refresh_white_24px.svg"></md-icon>
+        </md-button>
+
+      </div>
+    </md-toolbar>
     <md-content>
       <div class='main'>
         <tube-list></tube-list>
       </div>
-
-  </md-content>
+    </md-content>
   </div>
 </body>
 
