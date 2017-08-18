@@ -2,11 +2,14 @@
   "name": "app",
   "version": "1.0.0",
   "scripts": {
-    "build": "babel js -d lib; webpack lib/app.js bundle.js"
+    "build": "babel js -d lib --source-maps inline --copy-files; webpack --config webpack.config.js"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
-    "babel-preset-env": "^1.6.0"
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.6.0",
+    "html-loader": "^0.5.1",
+    "svg-inline-loader": "^0.8.0"
   },
   "dependencies": {
     "angular": "^1.6.5",

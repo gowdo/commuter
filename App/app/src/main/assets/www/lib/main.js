@@ -1,55 +1,15 @@
 'use strict';
 
-var _test = require('./test.js');
-
-var _jquery = require('jquery');
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 var app = angular.module('app', ['ngMaterial']);
 app.controller('ctrl', function ($scope, $element, $http) {
   $scope.listLoaded = false;
 
-  $scope.load = function () {
-    showLoader(true);
-    $scope.lines = [];
-    $http.get('https://api.tfl.gov.uk/Line/Mode/tube/Status').then(function (resp) {
-      var data = resp.data;
-
-      data.forEach(function (line) {
-        line.lineStatuses.forEach(function (s) {
-          if (s.statusSeverity < 10) {
-            $scope.lines.push({
-              id: line.id,
-              status: s.statusSeverityDescription,
-              statusSeverity: s.statusSeverity,
-              reason: s.reason
-            });
-          }
-        });
-      });
-      console.log($scope.lines);
-      showLoader(false);
-    });
+  $scope.load = function (params) {
+    $scope.$broadcast('loadPanels');
   };
 
-  function showLoader(show) {
-    $scope.listLoaded = !show;
-    if (show) {
-      (0, _jquery2.default)('.main').height((0, _jquery2.default)(window).height() - 56);
-    } else {
-      (0, _jquery2.default)('.main').height('auto');
-    }
-  }
-
-  $scope.load();
+  window.setTimeout(function () {
+    $scope.load();
+  }, 0);
 });
-
-// console.log(qq());
-
-
-function test() {
-  var gg = [];
-}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL2pzL21haW4uanMiXSwibmFtZXMiOlsiYXBwIiwiYW5ndWxhciIsIm1vZHVsZSIsImNvbnRyb2xsZXIiLCIkc2NvcGUiLCIkZWxlbWVudCIsIiRodHRwIiwibGlzdExvYWRlZCIsImxvYWQiLCJwYXJhbXMiLCIkYnJvYWRjYXN0Iiwid2luZG93Iiwic2V0VGltZW91dCJdLCJtYXBwaW5ncyI6Ijs7QUFDQSxJQUFJQSxNQUFNQyxRQUFRQyxNQUFSLENBQWUsS0FBZixFQUFzQixDQUFDLFlBQUQsQ0FBdEIsQ0FBVjtBQUNBRixJQUFJRyxVQUFKLENBQWUsTUFBZixFQUF1QixVQUFDQyxNQUFELEVBQVNDLFFBQVQsRUFBbUJDLEtBQW5CLEVBQTZCO0FBQ2xERixTQUFPRyxVQUFQLEdBQW9CLEtBQXBCOztBQUVBSCxTQUFPSSxJQUFQLEdBQWMsVUFBVUMsTUFBVixFQUFrQjtBQUM5QkwsV0FBT00sVUFBUCxDQUFrQixZQUFsQjtBQUNELEdBRkQ7O0FBSUFDLFNBQU9DLFVBQVAsQ0FBa0IsWUFBTTtBQUFFUixXQUFPSSxJQUFQO0FBQWdCLEdBQTFDLEVBQTRDLENBQTVDO0FBQ0QsQ0FSRCIsImZpbGUiOiJtYWluLmpzIiwic291cmNlc0NvbnRlbnQiOlsiXG52YXIgYXBwID0gYW5ndWxhci5tb2R1bGUoJ2FwcCcsIFsnbmdNYXRlcmlhbCddKTtcbmFwcC5jb250cm9sbGVyKCdjdHJsJywgKCRzY29wZSwgJGVsZW1lbnQsICRodHRwKSA9PiB7XG4gICRzY29wZS5saXN0TG9hZGVkID0gZmFsc2U7XG5cbiAgJHNjb3BlLmxvYWQgPSBmdW5jdGlvbiAocGFyYW1zKSB7XG4gICAgJHNjb3BlLiRicm9hZGNhc3QoJ2xvYWRQYW5lbHMnKTtcbiAgfTtcblxuICB3aW5kb3cuc2V0VGltZW91dCgoKSA9PiB7ICRzY29wZS5sb2FkKCk7IH0sIDApO1xufSk7XG4iXX0=
