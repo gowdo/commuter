@@ -2,7 +2,7 @@
   "name": "app",
   "version": "1.0.0",
   "scripts": {
-    "build": "webpack --config webpack.config.js; cp -r build ../assets/www;"
+    "build": "rm -r build; rm -r ../assets/www; webpack --config webpack.config.js; cp -r build ../assets/www;"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
