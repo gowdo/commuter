@@ -11,11 +11,9 @@ module.exports = {
     filename: "bundle.js"
   },
   plugins: [
-    // new webpack.optimize.DedupePlugin(),
-    // new webpack.optimize.OccurenceOrderPlugin(),
-    // new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
     new CopyWebpackPlugin([
       { from: 'index.html', to: 'index.html' },
+      { from: 'manifest.json', to: 'manifest.json' },
       { from: 'styles', to: 'styles' },
       { from: 'img', to: 'img' },
     ])
@@ -36,6 +34,10 @@ module.exports = {
       {
         test: /\.svg$/,
         loader: 'svg-inline'
+      },
+      {
+        test: /\.css$/,
+        use: [ 'style-loader', 'css-loader' ]
       }
     ]
   }

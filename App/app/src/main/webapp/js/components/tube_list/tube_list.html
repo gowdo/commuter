@@ -12,9 +12,11 @@
           <md-list-item class="md-3-line" ng-repeat="line in tubeList.lines">
             <!-- <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" /> -->
             <div class="md-list-item-text" layout="column">
-              <h3>{{ line.id }}</h3>
-              <h4>{{ line.status }}</h4>
-              <p>{{ line.reason }}</p>
+              <h3><div class="line-title {{line.id}}-color">{{ line.name }}</div></h3>
+              <div ng-repeat="status in line.statuses">
+                <h4>{{ status.status }}</h4>
+                <p>{{ status.reason }}</p>
+              </div>
             </div>
           </md-list-item>
           <!-- <md-divider></md-divider> -->

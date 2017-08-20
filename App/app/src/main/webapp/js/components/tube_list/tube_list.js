@@ -1,8 +1,7 @@
 
-import $ from 'jquery';
-
+import testData from './test_data.json'
 import template from './tube_list.html';
-import { TUBE_URI } from '../../uri_constants'
+import { TUBE_URI } from '../../constants/tube'
 
 var app = angular.module('app');
 app.directive('tubeList', () => {
@@ -25,15 +24,25 @@ app.directive('tubeList', () => {
         this.$http.get(TUBE_URI.LINE_STATUS)
         .then((resp) => {
           const { data } = resp;
+          // const data = testData;
           data.forEach((line) => {
             line.lineStatuses.forEach(s => {
               if (s.statusSeverity < 10) {
-                this.lines.push({
-                  id: line.id,
+                const existingLine = this.lines.filter(l => l.id === line.id);
+                const status = {
                   status: s.statusSeverityDescription,
                   statusSeverity: s.statusSeverity,
                   reason: s.reason
-                });
+                };
+                if (existingLine.length) {
+                  existingLine[0].statuses.push(status);
+                } else {
+                  this.lines.push({
+                    id: line.id,
+                    name: line.name,
+                    statuses: [status]
+                  });
+                }
               }
             });
           });

@@ -40,6 +40,15 @@ md-list {
 .line {
   border-bottom: 1px solid #CCC;
 }
+.line-title {
+  color: #ffffff;
+  padding: 2px 4px;
+  border-radius: 2px;
+}
+.fixture-title {
+  color: #000;
+}
+
 
 #header {
   padding:20px;

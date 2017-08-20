@@ -1,0 +1,37 @@
+{
+  "_links": {
+    "self": {
+      "href": "http://api.football-data.org/v1/teams/66/fixtures"
+    },
+    "team": {
+      "href": "http://api.football-data.org/v1/teams/66"
+    }
+  },
+  "count": 1,
+  "fixtures": [{
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/159301"
+      },
+      "competition": {
+        "href": "http://api.football-data.org/v1/competitions/445"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/66"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/338"
+      }
+    },
+    "date": "2017-08-26T16:30:00Z",
+    "status": "TIMED",
+    "matchday": 3,
+    "homeTeamName": "Manchester United FC",
+    "awayTeamName": "Leicester City FC",
+    "result": {
+      "goalsHomeTeam": null,
+      "goalsAwayTeam": null
+    },
+    "odds": null
+  }]
+}
