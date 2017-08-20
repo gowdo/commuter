@@ -3,7 +3,7 @@ var app = angular.module('app', ['ngMaterial']);
 app.controller('ctrl', ($scope, $element, $http, $mdSidenav) => {
   $scope.listLoaded = false;
 
-  $scope.load = function (params) {
+  $scope.load = function () {
     $scope.$broadcast('loadPanels');
   };
 
@@ -11,12 +11,18 @@ app.controller('ctrl', ($scope, $element, $http, $mdSidenav) => {
 
   function buildToggler(navID) {
     return function() {
-      // Component lookup should always be available since we are not using `ng-if`
-      $mdSidenav(navID)
-        .toggle()
-        .then(function () {
-          console.log("toggle " + navID + " is done");
-        });
+
+      const sd = $mdSidenav(navID);
+      sd.onClose(() => {
+        $scope.load();
+      });
+
+      sd.toggle()
+      .then(() => {
+        // console.log("toggle " + navID + " is done");
+      })
+
+
     };
   }
 

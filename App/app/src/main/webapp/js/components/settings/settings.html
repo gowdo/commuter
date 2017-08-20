@@ -1,0 +1,11 @@
+<md-content layout-padding>
+    <md-input-container>
+        <label>Football club</label>
+        <md-select ng-model="settings.teamId" ng-change="settings.save()">
+          <md-option><em>None</em></md-option>
+          <md-option ng-repeat="team in settings.TEAMS" ng-value="team.id">
+            {{team.name}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+</md-content>
