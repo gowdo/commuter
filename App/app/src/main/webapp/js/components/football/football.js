@@ -24,6 +24,7 @@ app.directive('footballStatus', () => {
 
       load() {
         this.showLoader(true);
+        this.fixtures= [];
         const config = {
           headers: {
             'X-Auth-Token': '334dcfcaa75f44d6a43ff61125621cdd'
