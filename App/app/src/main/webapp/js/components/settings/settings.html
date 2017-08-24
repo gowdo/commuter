@@ -1,24 +1,25 @@
 <md-content layout-padding>
-  <md-input-container>
-    <label>Football club</label>
-    <md-select ng-model="settings.team" ng-change="settings.save()">
-      <md-option><em>None</em></md-option>
-      <md-option ng-repeat="team in settings.TEAMS" ng-value="team">
-        {{team.shortName}}
-      </md-option>
-    </md-select>
-  </md-input-container>
+  <div>
+    <md-input-container>
+      <label>Football club</label>
+      <md-select ng-model="settings.team" ng-change="settings.save()">
+        <md-option><em>None</em></md-option>
+        <md-option ng-repeat="team in settings.TEAMS" ng-value="team">
+          {{team.shortName}}
+        </md-option>
+      </md-select>
+    </md-input-container>
 
-  <div></div>
+    <div></div>
 
-  <md-input-container>
-    <label>Period</label>
-    <md-select ng-model="settings.period" ng-change="settings.save()">
-      <md-option><em>None</em></md-option>
-      <md-option ng-repeat="period in settings.PERIODS" ng-value="period">
-        {{period.name}}
-      </md-option>
-    </md-select>
-
-  </md-input-container>
+    <md-input-container>
+      <label>Period</label>
+      <md-select ng-model="settings.period" ng-change="settings.save()">
+        <md-option><em>None</em></md-option>
+        <md-option ng-repeat="period in settings.PERIODS" ng-value="period">
+          {{period.name}}
+        </md-option>
+      </md-select>
+    </md-input-container>
+  </div>
 </md-content>
