@@ -1,6 +1,6 @@
 
 var app = angular.module('app', ['ngMaterial']);
-app.controller('ctrl', ($scope, $element, $http, $mdSidenav) => {
+app.controller('ctrl', ($scope, $element, $http, $mdSidenav, appSettings) => {
   $scope.listLoaded = false;
 
   $scope.load = function () {

@@ -4,7 +4,7 @@ import template from './tube_list.html';
 import { TUBE_URI } from '../../constants/tube'
 
 var app = angular.module('app');
-app.directive('tubeList', () => {
+app.directive('tubeList', function() {
   return {
     restrict: 'E',
     template,

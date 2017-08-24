@@ -23,7 +23,7 @@
         </md-list>
       </md-content>
       <md-content ng-if="footballStatus.fixtures.length===0" layout-padding>
-        <md-content layout-padding>No Arsenal home games this week</md-content>
+        <div>No {{footballStatus.TEAM.shortName}} home games in the next <span style="text-transform: lowercase;">{{footballStatus.PERIOD.name}}</span></div>
       </md-content>
     </div>
     <md-content ng-if="footballStatus.listLoaded===false" layout-padding>
