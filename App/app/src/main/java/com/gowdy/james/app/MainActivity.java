@@ -1,4 +1,4 @@
-package com.gowdy.james.app;
+package com.gowdy.james.commuter;
 
 import android.app.Activity;
 import android.content.Intent;
