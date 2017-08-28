@@ -48,7 +48,7 @@ app.directive('tubeList', function() {
           });
 
           // this.testData();
-          console.log(this.lines);
+          console.log('lines',this.lines);
           this.showLoader(false);
         });
       }

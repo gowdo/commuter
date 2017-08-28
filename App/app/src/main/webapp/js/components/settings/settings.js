@@ -17,14 +17,9 @@ app.directive('settings', function() {
         this.period = appSettings.getPeriod();
         this.TEAMS = TEAMS;
         this.PERIODS = PERIODS;
-        // this.settings.period = null;
-        // this.DAYS = appSettings.DAYS;
       }
 
-      setPeriod (period) {
-      }
       save() {
-        console.log('save it being called??');
         this.appSettings.setPeriod(this.period);
         this.appSettings.setTeam(this.team);
         console.log(this.team);
@@ -51,9 +46,12 @@ app.directive('settings', function() {
     storeSettings();
   }
 
+  this.saveSettings = function () {
+    storeSettings();
+  };
+
   this.setPeriod = function (p) {
     SETTINGS.period = p;
-    storeSettings();
   };
   this.getPeriod = function () {
     return SETTINGS.period;
@@ -61,7 +59,6 @@ app.directive('settings', function() {
 
   this.setTeam = function (t) {
     SETTINGS.team = t;
-    storeSettings();
   };
   this.getTeam = function () {
     return SETTINGS.team;

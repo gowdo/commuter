@@ -42,16 +42,12 @@ app.directive('footballStatus', function() {
           // const data = testData;
           const { data } = resp;
           const period = 'year';
-          // console.log(data);
-          // const today = moment();
-          // const thisPeriod = today.startOf(period).unix();
 
           const nowSeconds = moment().unix();
           const futureSeconds = (nowSeconds + this.PERIOD.days * 24 * 60 * 60);
 
           data.fixtures.forEach(game => {
             const gameDate = moment(game.date);
-            // if(gameDate.startOf(period).unix() === thisPeriod) {
             if(gameDate.unix() > nowSeconds && gameDate.unix() <= futureSeconds) {
               if(game.homeTeamName === this.TEAM.name) {
                 const fixture = {};

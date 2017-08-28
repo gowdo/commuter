@@ -14,6 +14,7 @@ app.controller('ctrl', ($scope, $element, $http, $mdSidenav, appSettings) => {
 
       const sd = $mdSidenav(navID);
       sd.onClose(() => {
+        appSettings.saveSettings();
         $scope.load();
       });
 
